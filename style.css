@@ -1,0 +1,255 @@
+:root {
+    --primary-color: #2d6cdf;
+    --secondary-color: #1c4fb7;
+    --accent-color: #f9a826;
+    --background-color: #f4f6fb;
+    --card-bg: #ffffff;
+    --text-color: #1f1f1f;
+    --light-text: #6c757d;
+    --border-color: #e0e6ed;
+    --completed-color: #00b894;
+    --pending-color: #ff5252;
+    --streak-color: #ff9800;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+}
+
+header p {
+    color: var(--light-text);
+    font-size: 1rem;
+}
+
+.task-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.task-form input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 16px;
+    transition: border var(--transition);
+}
+
+.task-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.task-form button {
+    padding: 14px 22px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color var(--transition);
+}
+
+.task-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.controls,
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls button,
+.filter-btn {
+    padding: 10px 18px;
+    background-color: #e9effb;
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all var(--transition);
+}
+
+.controls button:hover,
+.filter-btn:hover {
+    background-color: #dbe7fd;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 20px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    position: relative;
+}
+
+.task-item:hover {
+    box-shadow: var(--shadow);
+}
+
+.task-item.completed {
+    background-color: rgba(0, 184, 148, 0.08);
+    border-left: 5px solid var(--completed-color);
+}
+
+.task-item.pending {
+    background-color: rgba(255, 82, 82, 0.05);
+    border-left: 5px solid var(--pending-color);
+}
+
+.task-checkbox {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 17px;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--light-text);
+}
+
+.task-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--light-text);
+    font-size: 18px;
+    transition: color var(--transition);
+}
+
+.task-actions button:hover {
+    color: var(--primary-color);
+}
+
+.task-streak {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    color: var(--streak-color);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.streak-icon {
+    margin-right: 6px;
+}
+
+.task-due {
+    font-size: 12px;
+    color: var(--light-text);
+    margin-left: 10px;
+}
+
+.notification-permission {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--card-bg);
+    padding: 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: none;
+    z-index: 100;
+}
+
+.notification-permission p {
+    margin-bottom: 10px;
+}
+
+.notification-permission button {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-form button {
+        width: 100%;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .task-actions {
+        align-self: flex-end;
+    }
+}
