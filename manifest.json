@@ -1,0 +1,21 @@
+{
+  "name": "Streak To-Do",
+  "short_name": "To-Do",
+  "description": "A to-do app with streak tracking",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#4a6fa5",
+  "background_color": "#f5f7fa",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
